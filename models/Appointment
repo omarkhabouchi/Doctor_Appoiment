@@ -1,6 +1,0 @@
-const mongoose = require("mongoose");
-
-const AppointmentSchema = new mongoose.Schema({});
-
-const Appointmen = mongoose.model("Appointmen", AppointmentSchema);
-module.exports = Appointmen;
