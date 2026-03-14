@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+ *.body {
+  
+  font-family:roboto ;
+    
+ }
+button {
+  background: #46daea !important;
+  padding: 15px;
+  color: black;
+  font-weight: bold;
+  transition: ease-in-out 0.3s !important;
+}
+button:hover {
+  background: #43b0ba;
+}
+
+/*
+
+code {
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+} */
