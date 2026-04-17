@@ -30,7 +30,7 @@ router.post("/register", async (req, res) => {
     });
 
     let token = jwt.sign(
-      { email, id: newUser._id, role: newUser.roles },
+      { email, id: newUser._id, name: newUser.name, role: newUser.roles },
       process.env.secretKey,
       {
         expiresIn: "1w",
@@ -57,17 +57,17 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    res.status(400).json("email or password incorrect ");
+    return res.status(400).json("email or password incorrect ");
   }
 
   const userLogin = await User.findOne({ email });
   if (!userLogin) {
-    res.status(400).json({ message: "user not found " });
+    return res.status(400).json({ message: "user not found " });
   }
 
   const match = await bcrypt.compare(password, userLogin.password);
   if (!match) {
-    res.status(400).json({ message: "password is not corret " });
+    return res.status(400).json({ message: "password is not corret " });
   }
 
   let token = jwt.sign(
@@ -80,7 +80,7 @@ router.post("/login", async (req, res) => {
     process.env.secretKey,
     { expiresIn: "1w" },
   );
-  res.status(201).json({
+  return res.status(201).json({
     message: "user is connected succesfuly",
     token,
     user: {
@@ -92,4 +92,12 @@ router.post("/login", async (req, res) => {
   });
 });
 
+// router.get("/allusers", async (req, res) => {
+//   try {
+//     const Userscount = await User.countDocuments();
+//     res.json({Userscount});
+//   } catch (error) {
+//     res.status(400).json({ message: "user not found " });
+//   }
+// });
 module.exports = router;

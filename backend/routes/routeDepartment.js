@@ -72,4 +72,24 @@ router.put("/put", (req, res) => {});
 
 //supprimer Department
 router.delete("/delet", (req, res) => {});
+
+//get count deppartments
+router.get("/countdepa", async (req, res) => {
+  try {
+    const count = await Department.countDocuments();
+    res.json({ count });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching department count " });
+  }
+});
+
+router.get("/Alldepartments", async (req, res) => {
+  try {
+    const departments = await Department.find({});
+    res.json(departments);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch departemets" });
+  }
+});
+
 module.exports = router;

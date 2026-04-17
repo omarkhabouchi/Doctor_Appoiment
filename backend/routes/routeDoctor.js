@@ -54,7 +54,7 @@ router.post("/addDoctor", upload.single("image"), async (req, res) => {
 //get all
 router.get("/allDoctors", async (req, res) => {
   const doctors = await Doctor.find();
-  res.json({ message: doctors });
+  res.json({ doctors });
 });
 
 //get byId
@@ -73,4 +73,13 @@ router.put("/doctors", (req, res) => {});
 //delete doctor
 router.delete("/doctors", (req, res) => {});
 
+//get count doctor
+router.get("/count", async (req, res) => {
+  try {
+    const count = await Doctor.countDocuments();
+    res.json({ count });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching doctors count " });
+  }
+});
 module.exports = router;
