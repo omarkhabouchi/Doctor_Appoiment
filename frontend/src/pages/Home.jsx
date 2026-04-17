@@ -1,10 +1,9 @@
 import React from "react";
-import HeroSlide from "../compoments/HeroSlide";
-import CallToAction from "../compoments/CallToAction";
-import About from "../compoments/About";
-import Status from "../compoments/Status";
-import Departments from "../compoments/Departments";
-import Addappointment from "../compoments/Addappointment";
+import HeroSlide from "../components/HeroSlide";
+import CallToAction from "../components/CallToAction";
+import About from "../components/About";
+import Status from "../components/Status";
+import Departments from "../components/Departments";
 
 const Home = () => {
   return (
@@ -19,13 +18,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// import React from 'react'
-
-// function Home() {
-//   return (
-//     <div>Home</div>
-//   )
-// }
-
-// export default Home

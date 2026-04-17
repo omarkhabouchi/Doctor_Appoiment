@@ -47,12 +47,12 @@ function AddAppointment() {
         const res = await fetch("http://localhost:5000/doctors/allDoctors");
         const data = await res.json();
 
-        console.log("API DOCTORS:", data);
+        //console.log("API DOCTORS:", data);
 
         // 👇 IMPORTANT FIX
         setDoctors(data.doctors || data || []);
       } catch (error) {
-        console.log("Error:", error);
+        //console.log("Error:", error);
         setError("Erreur chargement doctors");
       } finally {
         setLoading(false);
