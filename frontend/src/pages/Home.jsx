@@ -4,6 +4,7 @@ import CallToAction from "../components/CallToAction";
 import About from "../components/About";
 import Status from "../components/Status";
 import Departments from "../components/Departments";
+import Doctors from "../components/Doctors";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <About />
       <Status />
       <Departments />
+      <Doctors />
     </div>
   );
 };

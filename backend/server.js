@@ -19,7 +19,8 @@ app.use(cors());
 app.use("/user", userRouter);
 app.use("/userr", routerUser);
 app.use("/doctors", routerDoctor);
-app.use("/files", express.static("imagesUploads"));
+//app.use("/files", express.static("imagesUploads"));
+app.use("/uploads", express.static("imagesUploads"));
 app.use("/appointments", routerAppointment);
 app.use("/departments", routerDepartment);
 

@@ -85,7 +85,7 @@ router.get("/doctor/:id", async (req, res) => {
       return res.status(404).json({ message: "Doctor not found" });
     }
 
-    res.status(200).json(doctor);
+    res.status(200).json({ doctor });
   } catch (error) {
     res.status(500).json({ message: "Server error" });
   }
@@ -141,6 +141,24 @@ router.get("/count", async (req, res) => {
     res.status(200).json({ count });
   } catch (error) {
     res.status(500).json({ message: "Error fetching doctors count" });
+  }
+});
+
+//recher by specilty
+
+router.get("/bySpecialty/:specialty", async (req, res) => {
+  try {
+    const { specialty } = req.params;
+    console.log("Searching for specialty:", specialty);
+    const doctors = await Doctor.find({
+      specialty: { $regex: new RegExp(specialty, "i") },
+    });
+
+    console.log("Found doctors:", doctors.length);
+    res.json(doctors);
+  } catch (error) {
+    console.error("error", error);
+    res.status(500).json({ message: error.message });
   }
 });
 

@@ -11,6 +11,8 @@ import { Routes, Route } from "react-router-dom";
 // ✅ ADD TOASTIFY IMPORTS
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AllDoctors from "./pages/AllDoctors";
+import DoctorDetails from "./pages/DoctorDetails";
 
 function App() {
   return (
@@ -26,6 +28,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/add-appointment" element={<AddAppointment />} />
         <Route path="/add-doctor" element={<AddDoctor />} />
+        <Route path="/alldoctors" element={<AllDoctors />} />
+        {/* <Route path="/doctorDetails" element={<DoctorDetails />} /> */}
+        <Route path="/doctor/:id" element={<DoctorDetails />} />
       </Routes>
     </>
   );
