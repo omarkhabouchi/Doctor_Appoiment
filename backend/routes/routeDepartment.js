@@ -93,3 +93,32 @@ router.get("/Alldepartments", async (req, res) => {
 });
 
 module.exports = router;
+
+// router.put(
+//   "/update/:id",
+//   auth("admin"),
+//   upload.single("image"),
+//   async (req, res) => {
+//     try {
+//       const { name, description } = req.body;
+//       const image = req.file?.filename;
+
+//       const updatedData = {
+//         name,
+//         description,
+//       };
+
+//       if (image) updatedData.image = image;
+
+//       const updatedDepartment = await Department.findByIdAndUpdate(
+//         req.params.id,
+//         updatedData,
+//         { new: true }
+//       );
+
+//       res.json(updatedDepartment);
+//     } catch (error) {
+//       res.status(500).json({ message: "Error updating department" });
+//     }
+//   }
+// );
